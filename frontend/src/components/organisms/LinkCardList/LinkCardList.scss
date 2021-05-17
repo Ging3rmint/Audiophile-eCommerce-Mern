@@ -1,0 +1,16 @@
+.link-cardList {
+  ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    justify-content: space-between;
+
+    > li {
+      margin-right: 30px;
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+}

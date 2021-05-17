@@ -1,0 +1,17 @@
+.recommend-cardList {
+  margin-top: 160px;
+  margin-bottom: 120px;
+
+  h2 {
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 32px;
+    letter-spacing: 1.15px;
+    margin-bottom: 64px;
+  }
+
+  ul {
+    display: flex;
+    justify-content: space-between;
+  }
+}

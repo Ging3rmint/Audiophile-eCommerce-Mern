@@ -1,0 +1,26 @@
+.cta-banner-twoPane {
+  .container {
+    display: flex;
+  }
+
+  &--right,
+  &--left {
+    // width: 50%;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  &--right {
+    width: 48.6%;
+    background-color: $light-grey1;
+    margin-left: auto;
+    padding: 101px 198px 94.7px 95px;
+
+    h2 {
+      margin-bottom: 32px;
+      font-size: 28px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+  }
+}

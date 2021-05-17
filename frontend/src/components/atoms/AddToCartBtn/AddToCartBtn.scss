@@ -1,0 +1,26 @@
+.addToCart-btn {
+  display: flex;
+  margin-top: 47px;
+
+  &__qty {
+    background-color: $light-grey1;
+    margin-right: 16px;
+  }
+
+  button {
+    border: none;
+    padding: 15px;
+    font-size: 13px;
+    color: $dark-orange;
+    font-weight: $bold;
+    background-color: transparent;
+    cursor: pointer;
+  }
+
+  span {
+    background-color: $light-grey1;
+    font-size: 13px;
+    padding: 0 15px;
+    font-weight: $bold;
+  }
+}

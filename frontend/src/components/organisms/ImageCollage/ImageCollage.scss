@@ -1,0 +1,26 @@
+.image-collage {
+  margin-top: 160px;
+
+  .container {
+    display: flex;
+  }
+
+  img {
+    border-radius: 8px;
+  }
+
+  &--left {
+    width: 40%;
+    margin-right: auto;
+
+    img {
+      &:first-of-type {
+        margin-bottom: 32px;
+      }
+    }
+  }
+
+  &--right {
+    width: 57%;
+  }
+}

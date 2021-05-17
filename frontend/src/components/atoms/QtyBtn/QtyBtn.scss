@@ -1,0 +1,18 @@
+.qty-btn {
+  button {
+    border: none;
+    padding: 15px;
+    font-size: 13px;
+    color: $dark-orange;
+    font-weight: $bold;
+    background-color: transparent;
+    cursor: pointer;
+  }
+
+  span {
+    background-color: $light-grey1;
+    font-size: 13px;
+    padding: 0 15px;
+    font-weight: $bold;
+  }
+}

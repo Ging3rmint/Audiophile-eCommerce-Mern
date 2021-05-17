@@ -1,0 +1,16 @@
+.recommend-card {
+  text-align: center;
+
+  &__img {
+    border-radius: 8px;
+    overflow: hidden;
+    width: 350px;
+    margin-bottom: 40px;
+  }
+
+  h3 {
+    font-size: 24px;
+    margin-bottom: 32px;
+    text-transform: uppercase;
+  }
+}

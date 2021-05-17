@@ -1,0 +1,14 @@
+.page-banner {
+  background-color: $black;
+  .container {
+    padding: 125px 0 97px;
+
+    h1 {
+      color: $white;
+      text-align: center;
+      font-size: 40px;
+      letter-spacing: 1.4px;
+      text-transform: uppercase;
+    }
+  }
+}

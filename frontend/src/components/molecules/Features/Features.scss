@@ -1,0 +1,48 @@
+.features {
+  margin-top: 160px;
+
+  .container {
+    display: flex;
+  }
+
+  h2 {
+    text-transform: uppercase;
+    margin-bottom: 32px;
+    font-size: 32px;
+    letter-spacing: 1.1px;
+  }
+
+  &--left {
+    width: 57%;
+    margin-right: auto;
+
+    p {
+      white-space: pre-line;
+      line-height: 25px;
+      opacity: 0.5;
+    }
+  }
+
+  &--right {
+    width: 31.5%;
+
+    ul > li {
+      margin-bottom: 8px;
+      position: relative;
+    }
+
+    &__qty {
+      position: absolute;
+      left: 0;
+      color: $dark-orange;
+      font-weight: $bold;
+      font-size: 15px;
+    }
+
+    &__item {
+      margin-left: 42px;
+      opacity: 0.5;
+      font-size: 15px;
+    }
+  }
+}

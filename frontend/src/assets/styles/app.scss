@@ -1,0 +1,81 @@
+@import "./variable.scss";
+@import "./mixins.scss";
+@import "./helper.scss";
+
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700&display=swap");
+
+body {
+  background: #fff;
+  color: $black;
+  font-family: "Manrope", sans-serif;
+  margin: auto;
+  max-width: 1440px;
+  position: relative;
+}
+
+.container {
+  @extend %container;
+  max-width: 1110px;
+
+  &--medium {
+    max-width: $bpLgDesktop;
+  }
+
+  &--large {
+    max-width: $bpXLgDesktop;
+  }
+}
+
+img {
+  object-fit: cover;
+  display: block;
+  max-width: 100%;
+}
+
+button,
+a {
+  display: inline-block;
+  text-decoration: none;
+}
+
+span {
+  display: inline-block;
+}
+
+ul {
+  padding: 0;
+  list-style: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+ul,
+p {
+  margin: 0;
+}
+
+//atoms
+@import "../../components/atoms/PrimaryButton/PrimaryButton.scss";
+@import "../../components/atoms/AddToCartBtn/AddToCartBtn.scss";
+@import "../../components/atoms/QtyBtn/QtyBtn.scss";
+
+//molecules
+@import "../../components/molecules/LinkCard/LinkCard.scss";
+@import "../../components/molecules/ProductCard/ProductCard.scss";
+@import "../../components/molecules/Features/Features.scss";
+@import "../../components/molecules/RecommendCard/RecommendCard.scss";
+@import "../../components/molecules/CartMenu/CartMenu.scss";
+
+//organisms
+@import "../../components/organisms/Header/Header.scss";
+@import "../../components/organisms/CtaBanner/CtaBanner.scss";
+@import "../../components/organisms/LinkCardList/LinkCardList.scss";
+@import "../../components/organisms/CtaBannerTwoPane/CtaBannerTwoPane.scss";
+@import "../../components/organisms/AboutCard/AboutCard.scss";
+@import "../../components/organisms/PageBanner/PageBanner.scss";
+@import "../../components/organisms/Footer/Footer.scss";
+@import "../../components/organisms/ImageCollage/ImageCollage.scss";
+@import "../../components/organisms/RecommendCardList/RecommendCardList.scss";

@@ -1,0 +1,35 @@
+.about-card {
+  .container {
+    display: flex;
+    flex-direction: row-reverse;
+  }
+
+  &__img {
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  &__text {
+    width: 50%;
+    padding: 147px 125px 147px 0;
+
+    h2 {
+      text-transform: uppercase;
+      font-size: 40px;
+      line-height: 44px;
+      letter-spacing: 1.5px;
+      margin-bottom: 32px;
+
+      span {
+        color: $dark-orange;
+      }
+    }
+
+    p {
+      font-size: 15px;
+      line-height: 25px;
+      color: $black;
+      opacity: 0.5;
+    }
+  }
+}
