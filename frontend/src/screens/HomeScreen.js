@@ -90,6 +90,7 @@ const HomeScreen = ({ view }) => {
       />
       <AboutCard
         marginTop='200px'
+        marginBottom='200px'
         image={aboutImages[view]}
         name='Bringing you the'
         highlight='best'

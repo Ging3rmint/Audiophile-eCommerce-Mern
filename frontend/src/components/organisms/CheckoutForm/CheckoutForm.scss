@@ -1,0 +1,44 @@
+.checkout-form {
+  padding: 48px;
+  background-color: $white;
+  border-radius: 8px;
+  margin-bottom: 141px;
+  margin-top: 38px;
+  max-width: 730px;
+
+  h1 {
+    font-size: 32px;
+    letter-spacing: 1.1px;
+    text-transform: uppercase;
+    font-weight: $bold;
+    margin-bottom: 41px;
+  }
+
+  h3 {
+    text-transform: uppercase;
+    color: $dark-orange;
+    font-size: 13px;
+  }
+
+  &__wrapper {
+    margin-bottom: 61px;
+  }
+
+  &__input-wrapper {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  label {
+    font-size: 12px;
+    letter-spacing: -0.2px;
+    font-weight: $bold;
+  }
+
+  p {
+    font-size: 12px;
+    font-weight: $bold;
+    letter-spacing: -0.2px;
+    margin-top: 16px;
+  }
+}

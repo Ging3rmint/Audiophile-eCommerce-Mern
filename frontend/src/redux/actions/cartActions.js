@@ -9,6 +9,7 @@ export const setCart = (slug, qty) => async (dispatch, getState) => {
     payload: {
       slug: data.slug,
       name: data.name,
+      tag: data.tag,
       image: data.image,
       price: data.price,
       qty,
@@ -18,7 +19,7 @@ export const setCart = (slug, qty) => async (dispatch, getState) => {
   const res = await axios.post("/api/cart", getState().cart.cartItems); //post all item to api
 
   if (res) {
-    dispatch({ type: actionTypes.CART_ADD_SUCCESS });
+    dispatch({ type: actionTypes.CART_UPDATE_SUCCESS });
   }
 };
 
@@ -40,5 +41,30 @@ export const getCart = () => async (dispatch) => {
           ? error.response.data.message
           : error.message,
     });
+  }
+};
+
+export const removeAllCart = () => async (dispatch) => {
+  dispatch({
+    type: actionTypes.CART_REMOVE_ALL,
+  });
+
+  const res = await axios.post("/api/cart", []);
+
+  if (res) {
+    dispatch({ type: actionTypes.CART_UPDATE_SUCCESS }); //trigger reload of cart if required
+  }
+};
+
+export const removeAnItem = (slug) => async (dispatch, getState) => {
+  dispatch({
+    type: actionTypes.CART_REMOVE,
+    payload: slug,
+  });
+
+  const res = await axios.post("/api/cart", getState().cart.cartItems);
+
+  if (res) {
+    dispatch({ type: actionTypes.CART_UPDATE_SUCCESS }); //trigger reload of cart if required
   }
 };

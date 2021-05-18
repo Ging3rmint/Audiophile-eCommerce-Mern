@@ -11,6 +11,10 @@ import Footer from "./components/organisms/Footer/Footer";
 import HomeScreen from "./screens/HomeScreen";
 import ProductListingScreen from "./screens/ProductListingScreen";
 import ProductScreen from "./screens/ProductScreen";
+import CheckoutScreen from "./screens/CheckoutScreen";
+
+//helper component
+import ScrollToTop from "./assets/scripts/ScrollToTop";
 
 function App() {
   const [view, setView] = useState("desktop");
@@ -21,13 +25,16 @@ function App() {
     bpDesktop: 1280,
   };
 
+  const getWidth = () =>
+    window.innerWidth ||
+    document.documentElement.clientWidth ||
+    document.body.clientWidth;
+
   useEffect(() => {
     const handleResize = () => {
-      const windowWidth = window.innerWidth;
-
-      if (windowWidth < breakpoints.bpTablet) {
+      if (getWidth() < breakpoints.bpTablet) {
         setView("mobile");
-      } else if (windowWidth < breakpoints.bpDesktop) {
+      } else if (getWidth() < breakpoints.bpDesktop) {
         setView("tablet");
       } else {
         setView("desktop");
@@ -38,7 +45,7 @@ function App() {
 
     window.dispatchEvent(new Event("resize"));
 
-    return (_) => {
+    return () => {
       window.removeEventListener("resize", handleResize);
     };
   });
@@ -47,6 +54,7 @@ function App() {
     <>
       <Router>
         <Header location={window.location.pathname} />
+        <ScrollToTop />
         <main>
           <Route exact path='/' render={() => <HomeScreen view={view} />} />
           <Route
@@ -56,6 +64,10 @@ function App() {
           <Route
             path='/product/:slug'
             render={(props) => <ProductScreen view={view} {...props} />}
+          />
+          <Route
+            path='/checkout'
+            render={(props) => <CheckoutScreen view={view} {...props} />}
           />
         </main>
         <Footer />

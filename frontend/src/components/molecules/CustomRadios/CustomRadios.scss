@@ -1,0 +1,45 @@
+.custom-radio {
+  display: block;
+  margin-left: auto;
+  width: 309px;
+  border: 1px solid #cfcfcf;
+  padding: 18px 16px;
+  border-radius: 8px;
+  margin-bottom: 16px;
+  position: relative;
+  cursor: pointer;
+
+  input {
+    margin-right: 20px;
+
+    &:before {
+      content: "";
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      top: 18px;
+      left: 19px;
+      background-color: $white;
+      border: 1px solid #cfcfcf;
+      border-radius: 20px;
+    }
+
+    &:checked:after {
+      width: 12px;
+      height: 12px;
+      border-radius: 30px;
+      top: 21px;
+      left: 23px;
+      transform: translate(7%, 2%);
+      position: absolute;
+      background-color: $dark-orange;
+      content: "";
+      display: inline-block;
+      visibility: visible;
+    }
+  }
+
+  &.active {
+    border: 1px solid #d87d4a;
+  }
+}

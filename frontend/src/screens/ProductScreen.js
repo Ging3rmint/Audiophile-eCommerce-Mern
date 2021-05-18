@@ -13,7 +13,7 @@ const ProductScreen = ({ match, history, view }) => {
   const dispatch = useDispatch();
 
   const productDetail = useSelector((state) => state.productGetBySlug);
-  const { loading, product, error } = productDetail;
+  const { loading, product } = productDetail;
 
   useEffect(() => {
     dispatch(getProductBySlug(match.params.slug));
@@ -43,11 +43,29 @@ const ProductScreen = ({ match, history, view }) => {
     desktop: "/images/shared/desktop/image-best-gear.jpg",
   };
 
+  const onBackHandler = () => {
+    history.goBack();
+  };
+
   return (
     <>
       {!loading && (
         <section className='product-detail'>
-          <ProductCard product={product} view={view} addToCart={true} />
+          <div className='container'>
+            <button
+              style={{ marginTop: "79px" }}
+              onClick={onBackHandler}
+              className='back-button'
+            >
+              Go Back
+            </button>
+          </div>
+          <ProductCard
+            marginTop={"56px"}
+            product={product}
+            view={view}
+            addToCart={true}
+          />
           <Features
             description={product.features}
             includes={product.includes}
@@ -59,6 +77,7 @@ const ProductScreen = ({ match, history, view }) => {
       <LinkCardList cards={linkCards} />
       <AboutCard
         marginTop='160px'
+        marginBottom='200px'
         image={aboutImages[view]}
         name='Bringing you the'
         highlight='best'

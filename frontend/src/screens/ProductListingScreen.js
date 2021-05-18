@@ -11,7 +11,7 @@ const ProductListingScreen = ({ match, view }) => {
   const dispatch = useDispatch();
 
   const catProduct = useSelector((state) => state.productGetAllCategory);
-  const { loading, products, error } = catProduct;
+  const { loading, products } = catProduct;
 
   useEffect(() => {
     dispatch(getAllProductByCategory(match.params.category));
@@ -53,7 +53,12 @@ const ProductListingScreen = ({ match, view }) => {
             }
             return (
               <li key={item._id}>
-                <ProductCard variant={variant} product={item} view={view} />
+                <ProductCard
+                  marginTop={"160px"}
+                  variant={variant}
+                  product={item}
+                  view={view}
+                />
               </li>
             );
           })}
@@ -61,6 +66,7 @@ const ProductListingScreen = ({ match, view }) => {
       <LinkCardList cards={linkCards} />
       <AboutCard
         marginTop='160px'
+        marginBottom='200px'
         image={aboutImages[view]}
         name='Bringing you the'
         highlight='best'

@@ -86,6 +86,10 @@ const audioProductSchema = mongoose.Schema({
     type: String,
     required: true,
   },
+  tag: {
+    type: String,
+    required: true,
+  },
   image: {
     mobile: {
       type: String,

@@ -1,12 +1,11 @@
-import React, { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 
 import AddToCartBtn from "../../atoms/AddToCartBtn/AddToCartBtn";
-import { setCart, getCart } from "../../../redux/actions/cartActions";
-import { CART_STATE_RESET } from "../../../redux/types/cartTypes";
+import { setCart } from "../../../redux/actions/cartActions";
 
-const ProductCard = ({ product, variant, view, addToCart }) => {
+const ProductCard = ({ product, variant, view, addToCart, marginTop }) => {
   const dispatch = useDispatch();
 
   const formatter = new Intl.NumberFormat("en-US", {
@@ -16,15 +15,6 @@ const ProductCard = ({ product, variant, view, addToCart }) => {
   });
 
   const [qty, setQty] = useState(1);
-  const cart = useSelector((state) => state.cart);
-  const { success } = cart;
-
-  useEffect(() => {
-    if (success) {
-      dispatch(getCart());
-      dispatch({ type: CART_STATE_RESET }); //prevent loop
-    }
-  }, [success, dispatch]);
 
   const onDecrement = () => {
     if (qty > 1) {
@@ -39,11 +29,13 @@ const ProductCard = ({ product, variant, view, addToCart }) => {
 
   const onAddToCart = () => {
     dispatch(setCart(product.slug, qty));
-    console.log("dispatch addtocart action then show cartmenu");
   };
 
   return (
-    <div className={variant ? `product-card ${variant}` : " product-card"}>
+    <div
+      style={{ marginTop: marginTop }}
+      className={variant ? `product-card ${variant}` : " product-card"}
+    >
       <div className='container'>
         <div className='product-card__img'>
           <img src={product.image[view]} alt={product.name} />

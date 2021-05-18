@@ -35,4 +35,10 @@
       color: $black;
     }
   }
+
+  &.block {
+    display: block;
+    width: 100%;
+    text-align: center;
+  }
 }

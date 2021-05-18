@@ -10,6 +10,7 @@ export const cartReducer = (state = { cartItems: [] }, action) => {
       if (existItem) {
         return {
           ...state,
+          updateSuccess: false,
           cartItems: state.cartItems.map((item) =>
             item.slug === existItem.slug ? thisItem : item
           ),
@@ -17,14 +18,29 @@ export const cartReducer = (state = { cartItems: [] }, action) => {
       } else {
         return {
           ...state,
+          updateSuccess: false,
           cartItems: [...state.cartItems, thisItem],
         };
       }
-    case actionTypes.CART_ADD_SUCCESS:
+    case actionTypes.CART_REMOVE:
+      return {
+        ...state,
+        updateSuccess: false,
+        cartItems: state.cartItems.filter(
+          (item) => item.slug !== action.payload
+        ),
+      };
+    case actionTypes.CART_REMOVE_ALL:
+      return {
+        ...state,
+        updateSuccess: false,
+        cartItems: [],
+      };
+    case actionTypes.CART_UPDATE_SUCCESS:
       return {
         ...state,
         loading: false,
-        success: true,
+        updateSuccess: true,
       };
     case actionTypes.CART_GET_REQUEST:
       return {
@@ -41,15 +57,8 @@ export const cartReducer = (state = { cartItems: [] }, action) => {
         ...state,
         cartItems: state.cartItems.filter((x) => x.product !== action.payload),
       };
-    case actionTypes.CART_REMOVE_SUCCESS:
-      return {
-        ...state,
-        cartItems: state.cartItems.filter(
-          (item) => item.slug !== action.payload
-        ),
-      };
     case actionTypes.CART_STATE_RESET:
-      return { ...state, loading: false, success: false };
+      return { ...state, loading: false, updateSuccess: false };
     default:
       return state;
   }

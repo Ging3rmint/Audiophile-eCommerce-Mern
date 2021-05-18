@@ -61,6 +61,8 @@ p {
 @import "../../components/atoms/PrimaryButton/PrimaryButton.scss";
 @import "../../components/atoms/AddToCartBtn/AddToCartBtn.scss";
 @import "../../components/atoms/QtyBtn/QtyBtn.scss";
+@import "../../components/atoms/BackButton/BackButton.scss";
+@import "../../components/atoms/CustomInput/CustomInput.scss";
 
 //molecules
 @import "../../components/molecules/LinkCard/LinkCard.scss";
@@ -68,6 +70,8 @@ p {
 @import "../../components/molecules/Features/Features.scss";
 @import "../../components/molecules/RecommendCard/RecommendCard.scss";
 @import "../../components/molecules/CartMenu/CartMenu.scss";
+@import "../../components/molecules/CartMenuAside/CartMenuAside.scss";
+@import "../../components/molecules/CustomRadios/CustomRadios.scss";
 
 //organisms
 @import "../../components/organisms/Header/Header.scss";
@@ -79,3 +83,4 @@ p {
 @import "../../components/organisms/Footer/Footer.scss";
 @import "../../components/organisms/ImageCollage/ImageCollage.scss";
 @import "../../components/organisms/RecommendCardList/RecommendCardList.scss";
+@import "../../components/organisms/CheckoutForm/CheckoutForm.scss";
