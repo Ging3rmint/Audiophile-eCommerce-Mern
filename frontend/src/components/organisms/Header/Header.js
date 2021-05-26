@@ -2,9 +2,10 @@ import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, withRouter } from "react-router-dom";
 import { ReactComponent as CartIcon } from "../../../assets/icons/icon-cart.svg";
-
+import { ReactComponent as HamburgerIcon } from "../../../assets/icons/icon-hamburger.svg";
 //components
 import CartMenu from "../../molecules/CartMenu/CartMenu";
+import MobileMenu from "../MobileMenu/MobileMenu";
 
 //helper component
 import UseScrollBlock from "../../../assets/scripts/useScrollBlock";
@@ -12,10 +13,11 @@ import UseScrollBlock from "../../../assets/scripts/useScrollBlock";
 //action
 import { CART_STATE_RESET } from "../../../redux/types/cartTypes";
 
-const Header = ({ location, history }) => {
+const Header = ({ location, history, linkCards }) => {
   const dispatch = useDispatch();
 
   const [cartMenuIsOpen, setCartMenuIsOpen] = useState(false);
+  const [mobileMenuIsOpen, setMobileMenuIsOpen] = useState(false);
   const [blockScroll, allowScroll] = UseScrollBlock();
 
   const isProductPage = () => {
@@ -43,6 +45,14 @@ const Header = ({ location, history }) => {
     }
   };
 
+  const onClickToggleHandler = () => {
+    setMobileMenuIsOpen(!mobileMenuIsOpen);
+  };
+
+  const onMobileMenuLinkClickHandler = () => {
+    setMobileMenuIsOpen(false);
+  };
+
   useEffect(() => {
     if (updateSuccess) {
       setCartMenuIsOpen(true);
@@ -52,13 +62,29 @@ const Header = ({ location, history }) => {
       setCartMenuIsOpen(false);
       allowScroll();
     }
-  }, [updateSuccess, dispatch, allowScroll, blockScroll, cartItems]);
+  }, [
+    updateSuccess,
+    dispatch,
+    allowScroll,
+    blockScroll,
+    cartItems,
+    mobileMenuIsOpen,
+  ]);
 
   return (
     <header>
       <nav className={isProductPage() ? "page-nav bg-black" : "page-nav"}>
         <div className='container'>
-          <h2>audiophile</h2>
+          <button
+            className='page-nav--hamburger'
+            onClick={onClickToggleHandler}
+          >
+            <HamburgerIcon className='no-desktop' />
+            <span className='sr-only'>Mobile menu</span>
+          </button>
+          <Link className='page-nav--title' to='/'>
+            <h2>audiophile</h2>
+          </Link>
           <ul>
             <li>
               <Link to='/'>Home</Link>
@@ -90,6 +116,11 @@ const Header = ({ location, history }) => {
             isVisible={cartMenuIsOpen}
           />
         </div>
+        <MobileMenu
+          onClickHandler={onMobileMenuLinkClickHandler}
+          cards={linkCards}
+          isVisible={mobileMenuIsOpen}
+        />
       </nav>
     </header>
   );

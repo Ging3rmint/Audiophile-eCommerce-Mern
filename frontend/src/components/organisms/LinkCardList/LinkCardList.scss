@@ -5,10 +5,21 @@
     padding: 0;
     justify-content: space-between;
 
+    //mobile
+    @media (max-width: 768px - 1) {
+      flex-direction: column;
+      align-items: center;
+    }
+
     > li {
       margin-right: 30px;
 
       &:last-child {
+        margin-right: 0;
+      }
+
+      //mobile
+      @media (max-width: 768px - 1) {
         margin-right: 0;
       }
     }

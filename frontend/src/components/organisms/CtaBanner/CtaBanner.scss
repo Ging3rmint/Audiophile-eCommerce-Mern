@@ -2,6 +2,10 @@
   position: relative;
 
   &.secondary {
+    @media (max-width: 768px - 1) {
+      padding: 24px;
+      padding-top: 0;
+    }
     .container {
       position: relative;
       transform: translate(0, 0);
@@ -13,9 +17,20 @@
   }
 
   &.bg-orange {
+    @media (max-width: 768px - 1) {
+      padding: 24px;
+      padding-top: 0;
+    }
+
     .container {
       background-color: $dark-orange;
       padding: 133px 95px 124px 666px;
+
+      //mobile
+      @media (max-width: 768px - 1) {
+        padding: 24px;
+        padding-bottom: 55px;
+      }
     }
   }
 
@@ -27,6 +42,29 @@
       p {
         width: 100%;
         padding-bottom: 40px;
+
+        @media (max-width: 768px - 1) {
+          padding: 0;
+        }
+      }
+    }
+  }
+
+  &.text-left {
+    .cta-banner__text {
+      @media (max-width: 768px - 1) {
+        width: 100%;
+        left: 0 !important;
+        top: 50% !important;
+        text-align: left;
+        padding-left: 24px;
+
+        h2 {
+          margin-left: 0;
+          font-size: 28px;
+          line-height: 38px;
+          letter-spacing: 2px;
+        }
       }
     }
   }
@@ -46,6 +84,23 @@
       left: 118px;
       bottom: -7px;
       width: 410px;
+
+      @media (max-width: 768px - 1) {
+        position: static;
+        width: 100%;
+        margin-top: 55px;
+        margin-bottom: 32px;
+        display: block;
+        text-align: center;
+      }
+
+      img {
+        @media (max-width: 768px - 1) {
+          width: 172px;
+          height: 207px;
+          display: inline-block;
+        }
+      }
     }
   }
 
@@ -66,16 +121,19 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+
+    @media (max-width: 768px - 1) {
+      top: 60%;
+    }
   }
 
   &__text {
     width: 40%;
     color: $white;
 
-    //mobile and tablet
-    @media (max-width: $bpDesktop - 1) {
-      width: 100%;
+    @media (max-width: 768px - 1) {
       text-align: center;
+      width: auto;
     }
 
     span {
@@ -93,6 +151,14 @@
       margin-bottom: 24px;
       text-transform: uppercase;
       line-height: 58px;
+
+      @media (max-width: 768px - 1) {
+        font-size: 36px;
+        line-height: 40px;
+        width: 80%;
+        margin: 0 auto;
+        margin-bottom: 24px;
+      }
     }
 
     p {
@@ -102,10 +168,9 @@
       width: 80%;
       opacity: 0.75;
 
-      @media (max-width: $bpDesktop - 1) {
-        width: 50%;
+      @media (max-width: 768px - 1) {
         margin: 0 auto;
-        margin-bottom: 40px;
+        margin-bottom: 24px;
       }
     }
   }

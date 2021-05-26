@@ -1,8 +1,16 @@
 .features {
   margin-top: 160px;
 
+  @media (max-width: $bpTablet - 1) {
+    padding: 0 24px;
+  }
+
   .container {
     display: flex;
+
+    @media (max-width: $bpTablet - 1) {
+      display: block;
+    }
   }
 
   h2 {
@@ -16,6 +24,10 @@
     width: 57%;
     margin-right: auto;
 
+    @media (max-width: $bpTablet - 1) {
+      width: 100%;
+    }
+
     p {
       white-space: pre-line;
       line-height: 25px;
@@ -25,6 +37,11 @@
 
   &--right {
     width: 31.5%;
+
+    @media (max-width: $bpTablet - 1) {
+      width: 100%;
+      margin-top: 88px;
+    }
 
     ul > li {
       margin-bottom: 8px;

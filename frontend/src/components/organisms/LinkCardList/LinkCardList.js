@@ -1,15 +1,15 @@
 import React from "react";
 import LinkCard from "../../molecules/LinkCard/LinkCard";
 
-const LinkCardList = ({ cards }) => {
+const LinkCardList = ({ cards, marginTop, onClickHandler }) => {
   return (
-    <section className='link-cardList'>
+    <section className='link-cardList' style={{ marginTop: marginTop }}>
       <div className='container'>
         <ul>
           {cards.map((card, index) => {
             return (
               <li key={card.category + index}>
-                <LinkCard card={card} />
+                <LinkCard onClickHandler={onClickHandler} card={card} />
               </li>
             );
           })}

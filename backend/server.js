@@ -34,7 +34,12 @@ app.use(
 
 app.use("/api/products", productRoutes);
 app.use("/api/cart", cartRoutes);
-
+app.get("/api/config/paypal", (req, res) =>
+  res.send(process.env.PAYPAL_CLIENT_ID)
+);
+// app.get("/api/config/stripe", (req, res) =>
+//   res.send(process.env.STRIPE_API_KEY)
+// );
 const PORT = process.env.PORT || 5000;
 
 app.listen(

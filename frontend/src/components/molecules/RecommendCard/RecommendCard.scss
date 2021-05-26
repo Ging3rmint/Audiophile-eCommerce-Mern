@@ -6,6 +6,11 @@
     overflow: hidden;
     width: 350px;
     margin-bottom: 40px;
+
+    @media (max-width: $bpTablet - 1) {
+      width: 100%;
+      margin-bottom: 32px;
+    }
   }
 
   h3 {

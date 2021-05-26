@@ -7,6 +7,12 @@
   padding: 32px;
   border-radius: 8px;
 
+  @media (max-width: $bpTablet - 1) {
+    position: static;
+    width: 100%;
+    margin-bottom: 97px;
+  }
+
   h2 {
     text-transform: uppercase;
     font-size: 18px;
@@ -31,6 +37,16 @@
 
     span {
       margin-left: auto;
+    }
+  }
+  &__payment {
+    position: relative;
+    z-index: 1;
+    max-height: 575px;
+    overflow-y: auto;
+
+    @media (max-width: $bpTablet - 1) {
+      max-height: auto;
     }
   }
 

@@ -10,7 +10,7 @@ const CtaBannerTwoPane = ({ link, image, name, marginTop }) => {
         </div>
         <div className='cta-banner-twoPane--right'>
           <h2>{name}</h2>
-          <Link to={link} className='primary-button fill black'>
+          <Link to={link} className='primary-button empty black'>
             See Product
           </Link>
         </div>

@@ -28,6 +28,7 @@ const ProductCard = ({ product, variant, view, addToCart, marginTop }) => {
   };
 
   const onAddToCart = () => {
+    window.scrollTo(0, 0);
     dispatch(setCart(product.slug, qty));
   };
 

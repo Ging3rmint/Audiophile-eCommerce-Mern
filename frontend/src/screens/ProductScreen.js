@@ -9,7 +9,7 @@ import Features from "../components/molecules/Features/Features";
 import ImageCollage from "../components/organisms/ImageCollage/ImageCollage";
 import RecommendCardList from "../components/organisms/RecommendCardList/RecommendCardList";
 
-const ProductScreen = ({ match, history, view }) => {
+const ProductScreen = ({ match, history, view, linkCards }) => {
   const dispatch = useDispatch();
 
   const productDetail = useSelector((state) => state.productGetBySlug);
@@ -18,24 +18,6 @@ const ProductScreen = ({ match, history, view }) => {
   useEffect(() => {
     dispatch(getProductBySlug(match.params.slug));
   }, [dispatch, match]);
-
-  const linkCards = [
-    {
-      image: "/images/shared/desktop/image-headphones.png",
-      link: "/products/headphones",
-      category: "headphones",
-    },
-    {
-      image: "/images/shared/desktop/image-speakers.png",
-      link: "/products/speakers",
-      category: "speakers",
-    },
-    {
-      image: "/images/shared/desktop/image-earphones.png",
-      link: "/products/earphones",
-      category: "earphones",
-    },
-  ];
 
   const aboutImages = {
     mobile: "/images/shared/mobile/image-best-gear.jpg",
@@ -53,7 +35,15 @@ const ProductScreen = ({ match, history, view }) => {
         <section className='product-detail'>
           <div className='container'>
             <button
-              style={{ marginTop: "79px" }}
+              style={
+                view !== "destop"
+                  ? {
+                      marginTop: "16px",
+                      marginBottom: "24px",
+                      marginLeft: "24px",
+                    }
+                  : { marginTop: "79px" }
+              }
               onClick={onBackHandler}
               className='back-button'
             >
@@ -61,7 +51,8 @@ const ProductScreen = ({ match, history, view }) => {
             </button>
           </div>
           <ProductCard
-            marginTop={"56px"}
+            marginTop={view !== "desktop" ? "0px" : "56px"}
+            variant='cost-detail'
             product={product}
             view={view}
             addToCart={true}
@@ -70,11 +61,22 @@ const ProductScreen = ({ match, history, view }) => {
             description={product.features}
             includes={product.includes}
           />
-          <ImageCollage gallery={product.gallery} view={view} />
-          <RecommendCardList others={product.others} view={view} />
+          <ImageCollage
+            gallery={product.gallery}
+            view={view}
+            marginTop={view !== "desktop" ? "88px" : "160px"}
+          />
+          <RecommendCardList
+            others={product.others}
+            view={view}
+            marginTop={view !== "desktop" ? "120px" : "160px"}
+          />
         </section>
       )}
-      <LinkCardList cards={linkCards} />
+      <LinkCardList
+        cards={linkCards}
+        marginTop={view !== "desktop" ? "120px" : "160px"}
+      />
       <AboutCard
         marginTop='160px'
         marginBottom='200px'

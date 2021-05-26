@@ -4,7 +4,7 @@ import CtaBannerTwoPane from "../components/organisms/CtaBannerTwoPane/CtaBanner
 import AboutCard from "../components/organisms/AboutCard/AboutCard";
 import LinkCardList from "../components/organisms/LinkCardList/LinkCardList";
 
-const HomeScreen = ({ view }) => {
+const HomeScreen = ({ view, linkCards }) => {
   const ctaPrimaryImages = {
     mobile: "/images/home/mobile/image-header.jpg",
     tablet: "/images/home/tablet/image-header.jpg",
@@ -35,24 +35,6 @@ const HomeScreen = ({ view }) => {
     desktop: "/images/shared/desktop/image-best-gear.jpg",
   };
 
-  const linkCards = [
-    {
-      image: "/images/shared/desktop/image-headphones.png",
-      link: "/products/headphones",
-      category: "headphones",
-    },
-    {
-      image: "/images/shared/desktop/image-speakers.png",
-      link: "/products/speakers",
-      category: "speakers",
-    },
-    {
-      image: "/images/shared/desktop/image-earphones.png",
-      link: "/products/earphones",
-      category: "earphones",
-    },
-  ];
-
   return (
     <>
       <CtaBanner
@@ -64,7 +46,7 @@ const HomeScreen = ({ view }) => {
       />
       <LinkCardList cards={linkCards} />
       <CtaBanner
-        marginTop='168px'
+        marginTop={view !== "desktop" ? "120px" : "168px"}
         variant='secondary bg-orange text-right image-float'
         btnVariant='fill black'
         image={ctaSub1Images[view]}
@@ -74,23 +56,23 @@ const HomeScreen = ({ view }) => {
         description='Upgrade to premium speakers that are phenomenally built to deliver truly remarkable sound.'
       />
       <CtaBanner
-        marginTop='48px'
-        variant='secondary text-float title-small title-black'
-        btnVariant='fill black'
+        marginTop={view !== "desktop" ? "0px" : "48px"}
+        variant='secondary text-float title-small title-black text-left'
+        btnVariant='empty black'
         image={ctaSub2Images[view]}
         name='ZX7
         SPEAKER'
         link='/product/xx99-mark-two-headphones'
       />
       <CtaBannerTwoPane
-        marginTop='48px'
+        marginTop={view !== "desktop" ? "0px" : "48px"}
         image={ctaSub3Images[view]}
         name='YX1 EARPHONES'
         link='/product/yx1-earphones'
       />
       <AboutCard
-        marginTop='200px'
-        marginBottom='200px'
+        marginTop={view !== "desktop" ? "120px" : "200px"}
+        marginBottom={view !== "desktop" ? "120px" : "200px"}
         image={aboutImages[view]}
         name='Bringing you the'
         highlight='best'

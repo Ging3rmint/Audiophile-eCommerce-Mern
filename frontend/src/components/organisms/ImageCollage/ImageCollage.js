@@ -1,8 +1,8 @@
 import React from "react";
 
-const ImageCollage = ({ gallery, view }) => {
+const ImageCollage = ({ gallery, view, marginTop }) => {
   return (
-    <section className='image-collage'>
+    <section className='image-collage' style={{ marginTop: marginTop }}>
       <div className='container'>
         <div className='image-collage--left'>
           <img src={gallery.first[view]} alt='gallery 1' />

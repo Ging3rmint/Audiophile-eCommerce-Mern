@@ -1,0 +1,59 @@
+.payment-success {
+  position: relative;
+  background-color: $white;
+  border-radius: 8px;
+  padding: 48px;
+  //   width: 540px;
+
+  &:before {
+    content: "";
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    background-color: $black;
+    opacity: 0.25;
+    top: 0;
+    left: 0;
+  }
+
+  &__tick-wrapper {
+    background-color: $dark-orange;
+    display: inline-block;
+    border-radius: 50%;
+    padding: 24px 20px;
+  }
+
+  &__text {
+    margin: 33px 0;
+    h2 {
+      width: 269px;
+      font-size: 32px;
+      line-height: 38px;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+
+    p {
+      color: $black;
+      opacity: 0.5;
+      font-size: 15px;
+    }
+  }
+
+  &--overlay {
+    position: absolute;
+    z-index: 100;
+    top: 10%;
+    left: 30%;
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.3s ease-in-out;
+
+    &.fadeIn {
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+}

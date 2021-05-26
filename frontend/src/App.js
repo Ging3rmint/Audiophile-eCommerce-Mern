@@ -50,20 +50,50 @@ function App() {
     };
   });
 
+  const linkCards = [
+    {
+      image: "/images/shared/desktop/image-headphones.png",
+      link: "/products/headphones",
+      category: "headphones",
+    },
+    {
+      image: "/images/shared/desktop/image-speakers.png",
+      link: "/products/speakers",
+      category: "speakers",
+    },
+    {
+      image: "/images/shared/desktop/image-earphones.png",
+      link: "/products/earphones",
+      category: "earphones",
+    },
+  ];
+
   return (
     <>
       <Router>
-        <Header location={window.location.pathname} />
+        <Header location={window.location.pathname} linkCards={linkCards} />
         <ScrollToTop />
         <main>
-          <Route exact path='/' render={() => <HomeScreen view={view} />} />
+          <Route
+            exact
+            path='/'
+            render={() => <HomeScreen view={view} linkCards={linkCards} />}
+          />
           <Route
             path='/products/:category'
-            render={(props) => <ProductListingScreen view={view} {...props} />}
+            render={(props) => (
+              <ProductListingScreen
+                view={view}
+                linkCards={linkCards}
+                {...props}
+              />
+            )}
           />
           <Route
             path='/product/:slug'
-            render={(props) => <ProductScreen view={view} {...props} />}
+            render={(props) => (
+              <ProductScreen view={view} linkCards={linkCards} {...props} />
+            )}
           />
           <Route
             path='/checkout'

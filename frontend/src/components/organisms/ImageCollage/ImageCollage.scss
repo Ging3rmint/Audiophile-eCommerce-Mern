@@ -1,8 +1,16 @@
 .image-collage {
   margin-top: 160px;
 
+  @media (max-width: $bpTablet - 1) {
+    padding: 0 24px;
+  }
+
   .container {
     display: flex;
+
+    @media (max-width: $bpTablet - 1) {
+      display: block;
+    }
   }
 
   img {
@@ -13,14 +21,27 @@
     width: 40%;
     margin-right: auto;
 
+    @media (max-width: $bpTablet - 1) {
+      width: 100%;
+    }
+
     img {
       &:first-of-type {
         margin-bottom: 32px;
+
+        @media (max-width: $bpTablet - 1) {
+          margin-bottom: 20px;
+        }
       }
     }
   }
 
   &--right {
     width: 57%;
+
+    @media (max-width: $bpTablet - 1) {
+      width: 100%;
+      margin-top: 20px;
+    }
   }
 }

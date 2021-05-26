@@ -7,7 +7,7 @@ import ProductCard from "../components/molecules/ProductCard/ProductCard";
 import LinkCardList from "../components/organisms/LinkCardList/LinkCardList";
 import AboutCard from "../components/organisms/AboutCard/AboutCard";
 
-const ProductListingScreen = ({ match, view }) => {
+const ProductListingScreen = ({ match, view, linkCards }) => {
   const dispatch = useDispatch();
 
   const catProduct = useSelector((state) => state.productGetAllCategory);
@@ -16,24 +16,6 @@ const ProductListingScreen = ({ match, view }) => {
   useEffect(() => {
     dispatch(getAllProductByCategory(match.params.category));
   }, [dispatch, match]);
-
-  const linkCards = [
-    {
-      image: "/images/shared/desktop/image-headphones.png",
-      link: "/products/headphones",
-      category: "headphones",
-    },
-    {
-      image: "/images/shared/desktop/image-speakers.png",
-      link: "/products/speakers",
-      category: "speakers",
-    },
-    {
-      image: "/images/shared/desktop/image-earphones.png",
-      link: "/products/earphones",
-      category: "earphones",
-    },
-  ];
 
   const aboutImages = {
     mobile: "/images/shared/mobile/image-best-gear.jpg",
@@ -54,7 +36,15 @@ const ProductListingScreen = ({ match, view }) => {
             return (
               <li key={item._id}>
                 <ProductCard
-                  marginTop={"160px"}
+                  marginTop={
+                    index === 0
+                      ? view !== "destkop"
+                        ? "64px"
+                        : "160px"
+                      : view !== "desktop"
+                      ? "120px"
+                      : "160px"
+                  }
                   variant={variant}
                   product={item}
                   view={view}
@@ -63,7 +53,10 @@ const ProductListingScreen = ({ match, view }) => {
             );
           })}
       </ul>
-      <LinkCardList cards={linkCards} />
+      <LinkCardList
+        cards={linkCards}
+        marginTop={view !== "desktop" ? "120px" : "0px"}
+      />
       <AboutCard
         marginTop='160px'
         marginBottom='200px'

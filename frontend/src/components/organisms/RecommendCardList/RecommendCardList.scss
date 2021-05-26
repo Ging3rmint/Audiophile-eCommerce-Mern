@@ -1,6 +1,7 @@
 .recommend-cardList {
-  margin-top: 160px;
-  margin-bottom: 120px;
+  @media (max-width: $bpTablet - 1) {
+    padding: 0 24px;
+  }
 
   h2 {
     text-transform: uppercase;
@@ -8,10 +9,28 @@
     font-size: 32px;
     letter-spacing: 1.15px;
     margin-bottom: 64px;
+
+    @media (max-width: $bpTablet - 1) {
+      font-size: 24px;
+      line-height: 36px;
+      margin-bottom: 40px;
+    }
   }
 
   ul {
     display: flex;
     justify-content: space-between;
+
+    @media (max-width: $bpTablet - 1) {
+      display: block;
+
+      li {
+        margin-bottom: 56px;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
   }
 }

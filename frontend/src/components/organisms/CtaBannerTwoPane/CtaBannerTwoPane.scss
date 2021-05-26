@@ -1,6 +1,12 @@
 .cta-banner-twoPane {
   .container {
     display: flex;
+
+    @media (max-width: 768px - 1) {
+      display: block;
+      padding: 24px;
+      padding-top: 0;
+    }
   }
 
   &--right,
@@ -15,6 +21,12 @@
     background-color: $light-grey1;
     margin-left: auto;
     padding: 101px 198px 94.7px 95px;
+
+    @media (max-width: 768px - 1) {
+      margin-top: 24px;
+      width: 100%;
+      padding: 41px 24px;
+    }
 
     h2 {
       margin-bottom: 32px;

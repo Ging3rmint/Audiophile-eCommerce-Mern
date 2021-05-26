@@ -8,19 +8,10 @@ const PageFooter = () => {
   return (
     <footer className='page-footer'>
       <div className='container'>
-        <div className='page-footer--left'>
+        <div className='page-footer--top'>
           <h2>audiophile</h2>
-          <p className='page-footer--left__text'>
-            Audiophile is an all in one stop to fulfill your audio needs. We're
-            a small team of music lovers and sound specialists who are devoted
-            to helping you get the most out of personal audio. Come and visit
-            our demo facility - we’re open 7 days a week.
-          </p>
-          <p>Copyright 2021. All Rights Reserved</p>
-        </div>
-        <div className='page-footer--right'>
           <nav>
-            <ul className='page-footer--right__menu'>
+            <ul>
               <li>
                 <Link to='/'>Home</Link>
               </li>
@@ -35,24 +26,36 @@ const PageFooter = () => {
               </li>
             </ul>
           </nav>
+        </div>
+        <div className='page-footer--bottom'>
+          <div className='page-footer--bottom__text'>
+            <p>
+              Audiophile is an all in one stop to fulfill your audio needs.
+              We're a small team of music lovers and sound specialists who are
+              devoted to helping you get the most out of personal audio. Come
+              and visit our demo facility - we’re open 7 days a week.
+            </p>
+            <p>Copyright 2021. All Rights Reserved</p>
+          </div>
+
           <nav>
-            <ul className='page-footer--right__socialMedia'>
+            <ul>
               <li>
                 <Link to='/#' title='Facebook'>
                   <FacebookIcon />
-                  <span className='sr-only'>Facebook</span>
+                  <span className='icon sr-only'>Facebook</span>
                 </Link>
               </li>
               <li>
                 <Link to='/#' title='Twitter'>
                   <TwitterIcon />
-                  <span className='sr-only'>Twitter</span>
+                  <span className='icon sr-only'>Twitter</span>
                 </Link>
               </li>
               <li>
                 <Link to='/#' title='Instagramcdcd'>
                   <InstagramIcon />
-                  <span className='sr-only'>Instagram</span>
+                  <span className='icon sr-only'>Instagram</span>
                 </Link>
               </li>
             </ul>

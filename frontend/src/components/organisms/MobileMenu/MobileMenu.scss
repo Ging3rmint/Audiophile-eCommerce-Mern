@@ -1,0 +1,33 @@
+.mobile-menu {
+  position: relative;
+  background-color: $white;
+  padding-bottom: 60px;
+  border-radius: 8px;
+
+  &:before {
+    content: "";
+    position: fixed;
+    width: 100vw;
+    height: 100%;
+    z-index: -1;
+    background-color: $black;
+    opacity: 0.25;
+    left: 0;
+    top: 0;
+  }
+
+  &--overlay {
+    position: absolute;
+    width: 100%;
+    top: 70px;
+    // height: ;
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.3s ease-in-out;
+
+    &.fadeIn {
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+}

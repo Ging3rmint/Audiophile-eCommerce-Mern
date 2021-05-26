@@ -13,9 +13,15 @@ const CheckoutForm = ({ onInputChangeHandler, radioState }) => {
     {
       name: "paymentMethod",
       variant: "half",
-      value: "stripe",
-      text: "Stripe",
+      value: "cash",
+      text: "Cash on delivery",
     },
+    // {
+    //   name: "paymentMethod",
+    //   variant: "half",
+    //   value: "stripe",
+    //   text: "Stripe",
+    // },
   ];
 
   return (

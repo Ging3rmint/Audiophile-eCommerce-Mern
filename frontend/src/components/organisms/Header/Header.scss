@@ -10,10 +10,23 @@
     position: relative;
   }
 
-  .container {
+  &--title {
+    @media (max-width: 768px - 1) {
+      margin: 0 auto;
+    }
+    h2 {
+      color: $white;
+    }
+  }
+
+  > .container {
     display: flex;
     align-items: center;
     position: relative;
+
+    // @media (max-width: $bpDesktop - 1) {
+    //   display: block;
+    // }
 
     &:before {
       content: " ";
@@ -23,10 +36,10 @@
       position: absolute;
       bottom: -20px;
       left: 2%;
-    }
 
-    h2 {
-      color: $white;
+      @media (max-width: $bpDesktop - 1) {
+        transform: scale(0);
+      }
     }
 
     > ul {
@@ -72,6 +85,12 @@
     }
   }
 
+  &--hamburger {
+    background-color: transparent;
+    border: none;
+    margin-left: 24px;
+  }
+
   &--cartBtn {
     display: inline-block;
     margin-left: auto;
@@ -82,6 +101,11 @@
 
     &:hover {
       transform: scale(1.2);
+    }
+
+    @media (max-width: $bpDesktop - 1) {
+      margin: 0;
+      margin-right: 30px;
     }
   }
 

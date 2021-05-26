@@ -2,9 +2,9 @@ import React from "react";
 
 import RecommendCard from "../../molecules/RecommendCard/RecommendCard";
 
-const RecommendCardList = ({ others, view }) => {
+const RecommendCardList = ({ others, view, marginTop }) => {
   return (
-    <section className='recommend-cardList'>
+    <section className='recommend-cardList' style={{ marginTop: marginTop }}>
       <div className='container'>
         <h2>You May Also Like</h2>
         <ul>

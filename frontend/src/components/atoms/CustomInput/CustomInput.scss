@@ -5,6 +5,10 @@
 
   &.half {
     width: 49%;
+
+    @media (max-width: $bpTablet - 1) {
+      width: 100%;
+    }
   }
 
   input {

@@ -1,5 +1,8 @@
 .product-card {
   // margin-top: 160px;
+  @media (max-width: $bpTablet - 1) {
+    padding: 0 24px;
+  }
 
   &.text--left {
     .container {
@@ -13,10 +16,30 @@
   }
   .container {
     display: flex;
+
+    @media (max-width: $bpTablet - 1) {
+      display: block;
+    }
   }
 
   &__img {
     width: 48.6%;
+
+    @media (max-width: $bpTablet - 1) {
+      width: 100%;
+    }
+  }
+
+  &.cost-detail {
+    .product-card__text {
+      @media (max-width: $bpTablet - 1) {
+        width: 100%;
+        text-align: left;
+        margin-top: 32px;
+        padding: 0;
+        height: auto;
+      }
+    }
   }
 
   &__text {
@@ -25,6 +48,14 @@
     margin-left: auto;
     margin-right: 0;
     padding: 83px 0;
+
+    @media (max-width: $bpTablet - 1) {
+      width: 100%;
+      text-align: center;
+      margin-top: 32px;
+      padding: 0;
+      height: auto;
+    }
 
     h1,
     h2 {
@@ -35,6 +66,13 @@
       margin-bottom: 32px;
       letter-spacing: 1.5px;
       text-transform: uppercase;
+
+      @media (max-width: $bpTablet - 1) {
+        width: 100%;
+        margin-top: 24px;
+        font-size: 28px;
+        line-height: 38px;
+      }
     }
 
     p {

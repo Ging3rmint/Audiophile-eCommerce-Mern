@@ -9,6 +9,11 @@
   position: relative;
   cursor: pointer;
 
+  @media (max-width: $bpTablet - 1) {
+    width: 100%;
+    margin-top: 17px;
+  }
+
   input {
     margin-right: 20px;
 

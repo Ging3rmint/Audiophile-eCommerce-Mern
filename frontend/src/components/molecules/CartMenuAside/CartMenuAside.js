@@ -1,6 +1,13 @@
 import React from "react";
+import { PayPalButton } from "react-paypal-button-v2";
+// import { CardElement, useElement, useStripe } from "@stripe.react-stripe-js";
 
-const CartMenuAside = ({ cartItems }) => {
+const CartMenuAside = ({
+  cartItems,
+  paymentSDKready,
+  paymentSuccessHandler,
+  paymentMethod,
+}) => {
   const formatter = new Intl.NumberFormat("en-US", {
     style: "currency",
     currency: "USD",
@@ -22,6 +29,7 @@ const CartMenuAside = ({ cartItems }) => {
   cartItems.taxPrice = addDecimals(
     Number(((gstAmt / 100) * cartItems.itemsPrice).toFixed(2))
   );
+
   cartItems.totalPrice = (
     Number(cartItems.itemsPrice) +
     Number(cartItems.shippingPrice) +
@@ -72,9 +80,23 @@ const CartMenuAside = ({ cartItems }) => {
           <span className='grandtotal'> ${cartItems.totalPrice}</span>
         </div>
       </div>
-      <button className='primary-button fill orange block'>
-        Continue & pay
-      </button>
+      <div className='cart-menu-aside__payment'>
+        {paymentSDKready ? (
+          <PayPalButton
+            amount={cartItems.totalPrice}
+            onSuccess={paymentSuccessHandler}
+          />
+        ) : (
+          paymentMethod === "cash" && (
+            <button
+              className='primary-button fill orange block'
+              onClick={paymentSuccessHandler}
+            >
+              Continue
+            </button>
+          )
+        )}
+      </div>
     </aside>
   );
 };
